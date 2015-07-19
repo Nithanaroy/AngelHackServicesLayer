@@ -1,6 +1,7 @@
 var http = require('http'),
     express = require('express'),
     session = require('./routes/sessions');
+    var busboy = require('connect-busboy');
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
@@ -9,13 +10,14 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
+app.use(busboy()); 
 
 app.get('/', function(req, res){
    res.send('Let\'s create some awesome product experience'); 
 });
 
 app.get('/sessions', session.findByUser);
-app.get('/sessions/:id', session.findById);
+app.post('/sessions/:id', session.findById);
 app.put('/sessions/:id/*', session.updateSession);
 app.post('/sessions', session.save);
 

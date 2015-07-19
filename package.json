@@ -17,8 +17,11 @@
     "url": "https://github.com//services/issues"
   },
   "dependencies": {
+    "connect-busboy": "0.0.2",
     "express": "^3.5.0",
+    "install": "^0.1.8",
     "mongojs": "^0.10.1",
+    "npm": "^2.13.1",
     "q": "^1.0.1"
   },
   "devDependencies": {
