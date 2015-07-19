@@ -1,4 +1,5 @@
 var Session = require ('../models/session.js');
+var exec = require('child_process').exec;
 
 /*exports.findAll = function(req, res){
 
@@ -13,11 +14,14 @@ exports.findById = function(req, res){
 };
 
 exports.findByUser = function(req, res){
-    if(!req.query.user) {
-        res.send(400, 'Do not know which user to get the sessions for!');
-    }else {
-        Session.find({leader: req.query.user}, handleDatabaseResponse(req, res));
-    }
+    var temp = "C:\\Users\\npasumarthy\\Documents\\Visual Studio 2013\\Projects\\AngelHack\\AngelHack\\bin\\Debug\\AngelHack.exe";
+    var url = "C:\\Users\\npasumarthy\\Documents\\Projects\\AngelHackServer\\executable\\AngelHack.exe";
+
+    exec(url, function(err, data) {
+        console.log("Data", data);
+        console.log("Error", err);
+        res.send("Done Tanu");
+    });
 };
 
 exports.updateSession = function(req, res){
